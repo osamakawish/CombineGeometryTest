@@ -13,31 +13,30 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace CombineGeometryTest
+namespace CombineGeometryTest;
+
+/// <summary>
+/// Interaction logic for MainWindow.xaml
+/// </summary>
+public partial class MainWindow
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
-    public partial class MainWindow
+    public MainWindow()
     {
-        public MainWindow()
-        {
-            InitializeComponent();
+        InitializeComponent();
 
-            var path1 = new Path {
-                Stroke = Brushes.Orange,
-                StrokeThickness = 1,
-                Data = Geometry.Parse("M0,0 L80,80 L0,80")
-            };
-            var path2 = new Path {
-                Stroke = Brushes.IndianRed,
-                StrokeThickness = 1.2,
-                Data = new EllipseGeometry(new Point(0, 0), 60, 60)
-            };
-            // Uncomment below to see result.
-            //path1.Data = new CombinedGeometry(GeometryCombineMode.Intersect, path1.Data, path2.Data);
+        var path1 = new Path {
+            Stroke = Brushes.Orange,
+            StrokeThickness = 1,
+            Data = Geometry.Parse("M0,0 L80,80 L0,80")
+        };
+        var path2 = new Path {
+            Stroke = Brushes.IndianRed,
+            StrokeThickness = 1.2,
+            Data = new EllipseGeometry(new Point(0, 0), 60, 60)
+        };
+        // Uncomment below to see result.
+        //path1.Data = new CombinedGeometry(GeometryCombineMode.Intersect, path1.Data, path2.Data);
 
-            Canvas.Children.Add(path1); Canvas.Children.Add(path2);
-        }
+        Canvas.Children.Add(path1); Canvas.Children.Add(path2);
     }
 }
